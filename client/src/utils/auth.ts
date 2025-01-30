@@ -10,7 +10,7 @@ class AuthService {
   loggedIn() {
     // TODO: return a value that indicates if the user is logged in
   }
-  
+
   isTokenExpired(token: string) {
     // TODO: return a value that indicates if the token is expired
   }
@@ -21,7 +21,16 @@ class AuthService {
 
   login(idToken: string) {
     // TODO: set the token to localStorage
+    localStorage.setItem('id_token', idToken);
+
     // TODO: redirect to the home page
+    /*( window.location -provides info about current URL
+     and allows manipulation of it.
+    //assign('/') -  loads new document in current window that
+     takes an URL as a argument and directs the browser to 
+    /that URL address.  In this case root of the current website
+     is being passed to assign.)*/
+    window.location.assign('/');
   }
 
   logout() {
