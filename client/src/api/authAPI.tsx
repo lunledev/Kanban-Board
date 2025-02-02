@@ -14,17 +14,34 @@ const login = async (userInfo: UserLogin) => {
      body: JSON.stringify(userInfo) - convert userINfo object
       to JSON string and set JSON string to request body.
       const data = await response.json(); - 
-      waiting for promise to resolve(async operatior to complete successfully). 
+      waiting for promise to resolve(async operator to complete successfully). 
       and store server's response object using variable named data.
     */
+    const response = await fetch('/auth/login',
+      {
+        method: 'POST',
+        headers: {
+          'Conent-Type': 'application/json'
+        },
+        body: JSON.stringify(userInfo)
+      });
 
+      //throws error if response is not ok(200 to 299)
+      if (!response.ok)
+      {
+        const errorloginData = await response.json();
+        throw new Error(`Error: ${errorloginData.message}`);
 
+      }
 
-
-
+      const loginData = await response.json(); // awaiting operations to complete and store response object from server in loginData.
+      return loginData;  //return data from server.
   }
-  catch(err)
-  {
+  catch (err) {
+
+    console.log('Error from user login: ', err); //display any errors during fetch.
+    return Promise.reject('Could not fetch user info'); //returns failed operation with a error message.
+    
 
   }
 }
