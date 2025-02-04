@@ -21,7 +21,7 @@ const login = async (userInfo: UserLogin) => {
       {
         method: 'POST',
         headers: {
-          'Conent-Type': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(userInfo)
       });
