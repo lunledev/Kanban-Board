@@ -9,7 +9,6 @@ import {
 
 const router = express.Router();
 
-router.post('*', getAllUsers);
 // GET /users - Get all users
 router.get('/', getAllUsers);
 

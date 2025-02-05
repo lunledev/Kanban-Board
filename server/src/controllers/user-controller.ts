@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { User } from '../models/user.js';
 
+
 // GET /Users
 export const getAllUsers = async (_req: Request, res: Response) => {
   try {
